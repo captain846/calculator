@@ -3,9 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentInput = '';
     let operator = '';
     let previousInput = '';
-    
+
     function updateDisplay(value) {
-        display.textContent = value || '0';
+        display.textContent = value || '0';  // Ensures that '0' is displayed if the value is empty
     }
 
     function handleNumber(num) {
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         updateDisplay(result);
-        previousInput = result;
+        previousInput = result.toString();
         currentInput = '';
         operator = '';
     }
@@ -67,6 +67,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('equals').addEventListener('click', calculate);
     document.getElementById('clear').addEventListener('click', clear);
-
-    document.getElementById('zero').addEventListener('click', () => handleNumber('0'));
 });
